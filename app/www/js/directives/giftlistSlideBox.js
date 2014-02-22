@@ -11,7 +11,8 @@ angular.module('giftlist.directives')
       showPager: '@',
       disableScroll: '@',
       onSlideChanged: '&',
-      activeSlide: '=?'
+      activeSlide: '=?',
+      onSwipe: '&'
     },
     controller: ['$scope', '$element', function($scope, $element) {
       var _this = this;
@@ -71,16 +72,13 @@ angular.module('giftlist.directives')
         slider.load();
       });
 
-      $ionicGesture.on('swipeleft', function(e){
-        console.log(e);
-        console.log('item with id #' + e.target.id + ' was disliked!');
+      $ionicGesture.on('swipeleft', function(){
+        $scope.onSwipe({swipeDir: "left"});
       }, $element);
 
-      $ionicGesture.on('swiperight', function(e){
-        console.log(e);
-        console.log('item with id #' + e.target.id + ' was liked!');
+      $ionicGesture.on('swiperight', function(){
+        $scope.onSwipe({swipeDir: "right"});
       }, $element);
-
     }],
     template: '<div class="slider">\
             <div class="slider-slides" ng-transclude>\
