@@ -1,7 +1,7 @@
 angular.module('giftlist.services')
 
 .factory('FirebaseService', function ($location, $state) {
-  var giftlist = new Firebase('https://thegiftlist.firebaseio.com');
+  var giftlist = new Firebase('https://thegiftlist.firebaseio.com/users');
 
   var auth = new FirebaseSimpleLogin(giftlist, function(error, user) {
     if (error) {
@@ -10,6 +10,13 @@ angular.module('giftlist.services')
     } else if (user) {
       // user authenticated with Firebase
       console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+      
+      // store or update user's info in firebase
+      var usr = {};
+      usr[user.id] = {};
+      usr[user.id].facebook = user;
+      giftlist.update(usr);
+      
       // go to search page once logged in
       $state.go('tab.search');
     } else {
