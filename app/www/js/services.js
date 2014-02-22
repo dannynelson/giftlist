@@ -1,5 +1,29 @@
 angular.module('starter.services', [])
 
+.factory('WishListService', function($http, $q) {
+  var url = '/search';
+
+  return {
+    wishList: [],
+
+    getWishList: function() {
+      var deferred = $q.defer();
+
+      $http.get('/search')
+        .success(function(data) {
+          // data may need some processing?
+          this.wishList = data;
+          deferred.resolve();
+        })
+        .failure(function(data, status) {
+          deferred.reject(data, status);
+        });
+
+      return deferred.promise();
+    }
+  };
+})
+
 /**
  * A simple example service that returns some data.
  */
