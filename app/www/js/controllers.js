@@ -15,8 +15,8 @@ angular.module('starter.controllers', [])
   $scope.hide = function() {
     $scope.loading.hide();
   };
-  
-  // send content of email field to api via 
+
+  // send content of email field to api via
   $scope.sendEmail = function(email) {
     // start spinner
     console.log("inside sendEmail", email);
@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
       .then(function() {
         // switch to wishList view state
         $scope.hide();
-        $state.go('tab.pet-index');
+        $state.go('tab.gift-ideas');
       }, function(data, status) {
         $scope.hide();
         console.log("Error occured during api request", data, status);
@@ -39,17 +39,21 @@ angular.module('starter.controllers', [])
 })
 
 
-// A simple controller that fetches a list of data from a service
-.controller('PetIndexCtrl', function($scope, PetService) {
-  // "Pets" is a service returning mock data (services.js)
-  $scope.pets = PetService.all();
+.controller('BrowseCtrl', function($scope, GiftService) {
+  // "Gifts" is a service returning mock data (services.js)
+  $scope.gifts = GiftService.all();
 })
 
 
-// A simple controller that shows a tapped item's data
-.controller('PetDetailCtrl', function($scope, $stateParams, PetService) {
-  // "Pets" is a service returning mock data (services.js)
-  $scope.pet = PetService.get($stateParams.petId);
+// A simple controller that fetches a list of data from a service
+.controller('GiftIndexCtrl', function($scope, GiftService) {
+  // "Gifts" is a service returning mock data (services.js)
+  $scope.gifts = GiftService.all();
+})
+
+.controller('GiftDetailCtrl', function($scope, $stateParams, GiftService) {
+  // "Gifts" is a service returning mock data (services.js)
+  $scope.gift = GiftService.get($stateParams.giftId);
 })
 
 
