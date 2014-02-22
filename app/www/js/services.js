@@ -79,7 +79,6 @@ angular.module('starter.services', [])
       console.log(error);
     } else if (user) {
       // user authenticated with Firebase
-      debugger;
       console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
       // go to search page once logged in
       $state.go('tab.search');

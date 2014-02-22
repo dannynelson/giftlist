@@ -6,6 +6,9 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'firebase', 'starter.services', 'starter.controllers'])
+angular.module('starter.controllers', []);
+angular.module('starter.services', [])
+
 
 
 .config(function($stateProvider, $urlRouterProvider) {
