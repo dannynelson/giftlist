@@ -5,9 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'firebase', 'starter.services', 'starter.controllers', 'starter.directives'])
-angular.module('starter.controllers', []);
-angular.module('starter.services', [])
+angular.module('giftlist.controllers', []);
+angular.module('giftlist.services', []);
+angular.module('giftlist.directives', []);
+
+angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.controllers', 'giftlist.directives'])
+
 
 .config(function($stateProvider, $urlRouterProvider) {
 
