@@ -63,32 +63,5 @@ angular.module('starter', ['ionic', "firebase", 'starter.services', 'starter.con
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/pets');
 
-})
-
-.run(function() {
-  // Parse.initialize(
-  //   "052sIKQtx4j78gACCFaKviUUwRlRpEg6CNxgp6Od",
-  //   "DZhIOEKSUEhbMOYSg7eBbUpN0rIrL5r40l3mHYLl"
-  // );
-  // 
-
-  // var peopleRef = new Firebase("https://thegiftlist.firebaseio.com/people");
-  //   // $scope.people = $firebase(peopleRef);
-  //   // $scope.addPerson = function() {
-  //   //   // AngularFire $add method
-  //   //   $scope.people.$add($scope.newPerson);
-  //     //or add a new person manually
-  //     peopleRef.update({name: 'Alex', age: 35});
-   
-  //     $scope.newPerson = "";
-  //   };
-  // };
-
-  // var TestObject = Parse.Object.extend("TestObject");
-  // var testObject = new TestObject();
-  // testObject.save({foo: "bar"}).then(function(object) {
-  //   alert("yay! it worked");
-  // });
 });
-
 

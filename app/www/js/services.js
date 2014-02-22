@@ -64,25 +64,38 @@ angular.module('starter.services', [])
       return pets[petId];
     }
   };
+})
+
+.factory('FirebaseService', function () {
+  var giftlist = new Firebase('https://thegiftlist.firebaseio.com');
+
+  var auth = new FirebaseSimpleLogin(giftlist, function(error, user) {
+    if (error) {
+      // an error occurred while attempting login
+      console.log(error);
+    } else if (user) {
+      // user authenticated with Firebase
+      console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+    } else {
+      // user is logged out
+      console.log('user is logged out');
+    }
+  });
+
+  var facebookLogin = function () {
+    console.log('logging in');
+    auth.login('facebook');
+  };
+
+  var logout = function () {
+    console.log('logging out');
+    auth.logout();
+  };
+
+  return {
+    auth: auth,
+    giftlist: giftlist,
+    facebookLogin: facebookLogin,
+    logout: logout
+  };
 });
-
-// .factory('FireBase', function () {
-//   var facebookLogin = function () {
-//     var peopleRef = new Firebase("https://thegiftlist.firebaseio.com/people");
-//       $scope.people = $firebase(peopleRef);
-//       $scope.addPerson = function() {
-//         // AngularFire $add method
-//         $scope.people.$add($scope.newPerson);
-//         //or add a new person manually
-//         peopleRef.update({name: 'Alex', age: 35});
-     
-//         $scope.newPerson = "";
-//       };
-//     };
-//   };
-
-//   return {
-//     facebookLogin: facebookLogin
-//   };
-
-// });
