@@ -1,5 +1,40 @@
 angular.module('starter.controllers', [])
 
+// Search controller, send's email to our api
+.controller('SearchCtrl', function($scope, $ionicLoading, WishListService) {
+  $scope.show = function() {
+    $scope.loading = $ionicLoading.show({
+      content: 'Loading',
+      animation: 'fade-in',
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 500
+    });
+  };
+
+  $scope.hide = function() {
+    $scope.loading.hide();
+  };
+  
+  // send content of email field to api via 
+  $scope.sendEmail = function(email) {
+    // start spinner
+    $scope.loading = $ionicLoading.show()
+
+    WishListService.getWishList()
+      // resoluton of getWishList means that an api request was initiated
+      // the server responded with wishList blob and wishList is
+      // avail as a property of the WishListService
+      // at this point i probably should transition to the next view
+      .then(function() {
+        // switch to wishList view state
+        $state.go('wishlist');
+      }, function(data, status) {
+        console.log("Error occured during api request", data, status);
+      });
+  };
+})
+
 
 // A simple controller that fetches a list of data from a service
 .controller('PetIndexCtrl', function($scope, PetService) {
