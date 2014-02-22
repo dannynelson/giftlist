@@ -1,29 +1,4 @@
-angular.module('starter.services', [])
-
-.factory('WishListService', function($http, $q) {
-  var url = 'http://giftlist-api.herokuapp.com/wishlist';
-
-  return {
-    wishList: [],
-
-    getWishList: function(email) {
-      var deferred = $q.defer();
-
-      $http.get(url + "/" + email)
-        .success(function(data) {
-          // data may need some processing?
-          this.wishList = data;
-          console.log(this.wishlist);
-          deferred.resolve();
-        })
-        .error(function(data, status) {
-          deferred.reject(data, status);
-        });
-
-      return deferred.promise;
-    }
-  };
-})
+angular.module('giftlist.services')
 
 /**
  * A simple example service that returns some data.
@@ -67,41 +42,5 @@ angular.module('starter.services', [])
       // Simple index lookup
       return gifts[giftId];
     }
-  };
-})
-
-.factory('FirebaseService', function ($location, $state) {
-  var giftlist = new Firebase('https://thegiftlist.firebaseio.com');
-
-  var auth = new FirebaseSimpleLogin(giftlist, function(error, user) {
-    if (error) {
-      // an error occurred while attempting login
-      console.log(error);
-    } else if (user) {
-      // user authenticated with Firebase
-      console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
-      // go to search page once logged in
-      $state.go('tab.search');
-    } else {
-      // user is logged out
-      console.log('user is logged out');
-    }
-  });
-
-  var facebookLogin = function () {
-    console.log('logging in');
-    auth.login('facebook');
-  };
-
-  var logout = function () {
-    console.log('logging out');
-    auth.logout();
-  };
-
-  return {
-    auth: auth,
-    giftlist: giftlist,
-    facebookLogin: facebookLogin,
-    logout: logout
   };
 });
