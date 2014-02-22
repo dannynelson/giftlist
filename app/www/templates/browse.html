@@ -2,11 +2,11 @@
   <ion-content has-header="true" has-tabs="true">
 
     <giftlist-slide-box>
-      <giftlist-slide ng-repeat="gift in gifts">
+      <giftlist-slide ng-repeat="gift in gifts" id="{{ gift.id }}">
         <div class="list card">
 
           <div class="item item-body">
-            <img class="full-image" ng-src="{{ gift.img }}">
+            <img class="full-image" id="{{ gift.id }}" ng-src="{{ gift.img }}">
             <p class="subdued">
               {{ gift.title }} -- ${{ gift.price }}
             </p>

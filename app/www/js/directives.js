@@ -71,7 +71,15 @@ angular.module('starter.directives', [])
         slider.load();
       });
 
-      $ionicGesture.on('swipe', function(){ console.log('swipe!') }, $element);
+      $ionicGesture.on('swipeleft', function(e){
+        console.log(e);
+        console.log('item with id #' + e.target.id + ' was disliked!');
+      }, $element);
+
+      $ionicGesture.on('swiperight', function(e){
+        console.log(e);
+        console.log('item with id #' + e.target.id + ' was liked!');
+      }, $element);
 
     }],
     template: '<div class="slider">\
