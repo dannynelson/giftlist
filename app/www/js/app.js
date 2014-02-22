@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
+angular.module('starter', ['ionic', "firebase", 'starter.services', 'starter.controllers'])
 
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -15,6 +15,12 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+
+    .state('login', {
+      url: "/login",
+      templateUrl: "templates/login.html",
+      controller: 'LoginCtrl'
+    })
 
     // setup an abstract state for the tabs directive
     .state('tab', {
@@ -60,10 +66,29 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 })
 
 .run(function() {
-  Parse.initialize(
-    "052sIKQtx4j78gACCFaKviUUwRlRpEg6CNxgp6Od",
-    "DZhIOEKSUEhbMOYSg7eBbUpN0rIrL5r40l3mHYLl"
-  );
+  // Parse.initialize(
+  //   "052sIKQtx4j78gACCFaKviUUwRlRpEg6CNxgp6Od",
+  //   "DZhIOEKSUEhbMOYSg7eBbUpN0rIrL5r40l3mHYLl"
+  // );
+  // 
+
+  // var peopleRef = new Firebase("https://thegiftlist.firebaseio.com/people");
+  //   // $scope.people = $firebase(peopleRef);
+  //   // $scope.addPerson = function() {
+  //   //   // AngularFire $add method
+  //   //   $scope.people.$add($scope.newPerson);
+  //     //or add a new person manually
+  //     peopleRef.update({name: 'Alex', age: 35});
+   
+  //     $scope.newPerson = "";
+  //   };
+  // };
+
+  // var TestObject = Parse.Object.extend("TestObject");
+  // var testObject = new TestObject();
+  // testObject.save({foo: "bar"}).then(function(object) {
+  //   alert("yay! it worked");
+  // });
 });
 
 

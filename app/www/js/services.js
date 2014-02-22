@@ -63,5 +63,26 @@ angular.module('starter.services', [])
       // Simple index lookup
       return pets[petId];
     }
-  }
+  };
 });
+
+// .factory('FireBase', function () {
+//   var facebookLogin = function () {
+//     var peopleRef = new Firebase("https://thegiftlist.firebaseio.com/people");
+//       $scope.people = $firebase(peopleRef);
+//       $scope.addPerson = function() {
+//         // AngularFire $add method
+//         $scope.people.$add($scope.newPerson);
+//         //or add a new person manually
+//         peopleRef.update({name: 'Alex', age: 35});
+     
+//         $scope.newPerson = "";
+//       };
+//     };
+//   };
+
+//   return {
+//     facebookLogin: facebookLogin
+//   };
+
+// });

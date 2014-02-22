@@ -50,4 +50,27 @@ angular.module('starter.controllers', [])
 .controller('PetDetailCtrl', function($scope, $stateParams, PetService) {
   // "Pets" is a service returning mock data (services.js)
   $scope.pet = PetService.get($stateParams.petId);
+})
+
+
+// A simple controller that fetches a list of data from a service
+.controller('LoginCtrl', function($scope) {
+  // "Pets" is a service returning mock data (services.js)
+  var chatRef = new Firebase('https://thegiftlist.firebaseio.com');
+
+  var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
+    if (error) {
+      // an error occurred while attempting login
+      console.log(error);
+    } else if (user) {
+      // user authenticated with Firebase
+      console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+    } else {
+      // user is logged out
+    }
+  });
+
+  $scope.login = function () {
+    auth.login('facebook');
+  };
 });
