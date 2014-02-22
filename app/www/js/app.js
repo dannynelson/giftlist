@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       templateUrl: "templates/tabs.html"
     })
 
-    // the pet tab has its own child nav-view and history
+    // the gift ideas tab has its own child nav-view and history
     .state('tab.gift-ideas', {
       url: '/gift-ideas',
       views: {

@@ -40,13 +40,13 @@ angular.module('starter.controllers', [])
 
 // A simple controller that fetches a list of data from a service
 .controller('GiftIndexCtrl', function($scope, GiftService) {
-  // "Pets" is a service returning mock data (services.js)
+  // "Gifts" is a service returning mock data (services.js)
   $scope.gifts = GiftService.all();
 })
 
 
 // A simple controller that shows a tapped item's data
 .controller('GiftDetailCtrl', function($scope, $stateParams, GiftService) {
-  // "Pets" is a service returning mock data (services.js)
+  // "Gifts" is a service returning mock data (services.js)
   $scope.gift = GiftService.get($stateParams.giftId);
 });
