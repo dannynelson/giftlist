@@ -6,9 +6,9 @@
     <div class="list list-inset">
       <label class="item item-input">
         <span class="input-label">Enter an email</span>
-        <input type="email">
+        <input type="email" ng-model="email">
       </label>
-      <button class="button button-positive button-block">Find Gifts</button>
+      <button class="button button-positive button-block" ng-click="sendEmail(email)">Find Gifts</button>
     </div>
   </ion-content>
 </ion-view>
