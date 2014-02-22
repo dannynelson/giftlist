@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
   // send content of email field to api via 
   $scope.sendEmail = function(email) {
     // start spinner
-    $scope.loading = $ionicLoading.show()
+    $scope.show();
 
     WishListService.getWishList()
       // resoluton of getWishList means that an api request was initiated
@@ -28,8 +28,10 @@ angular.module('starter.controllers', [])
       // at this point i probably should transition to the next view
       .then(function() {
         // switch to wishList view state
+        $scope.hide();
         $state.go('wishlist');
       }, function(data, status) {
+        $scope.hide();
         console.log("Error occured during api request", data, status);
       });
   };
