@@ -52,6 +52,16 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
           controller: "SearchCtrl"
         }
       }
+    })
+
+    .state('tab.browse', {
+      url: '/browse',
+      views: {
+        'browse-tab': {
+          templateUrl: 'templates/browse.html',
+          controller: "BrowseCtrl"
+        }
+      }
     });
 
   // if none of the above states are matched, use this as the fallback
