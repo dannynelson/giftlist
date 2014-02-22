@@ -8,10 +8,10 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var pets = [
-    { id: 0, title: 'Cats', description: 'Furry little creatures. Obsessed with plotting assassination, but never following through on it.' },
-    { id: 1, title: 'Dogs', description: 'Lovable. Loyal almost to a fault. Smarter than they let on.' },
-    { id: 2, title: 'Turtles', description: 'Everyone likes turtles.' },
-    { id: 3, title: 'Sharks', description: 'An advanced pet. Needs millions of gallons of salt water. Will happily eat you.' }
+    { id: 0, title: 'The Innovator\'s Dilemma', description: 'The Revolutionary Book That Will Change the Way You Do Business.' },
+    { id: 1, title: 'Business Model Generation', description: 'A Handbook for Visionaries, Game Changers, and Challengers.' },
+    { id: 2, title: 'Miike Snow (Vinyl)', description: 'Miike Snow is – are – in a playful mood. The second, somewhat orchatronic, album by the three-headed-band with the one-man-name and mysterious Jackalope symbol is called Happy To You.' },
+    { id: 3, title: 'Anker® Astro 5600mAh External Battery Backup Charger', description: 'with Built-In Flashlight for iPhone 5S, 5C, 5, 4S, 4, Samsung Galaxy S4, S3, Note 2, Note 3, HTC One, Motorola Droid, MOTO X, LG Optimus and most other smartphones and USB-charged devices (Apple adapters - 30 pin and lightning, not included).' }
   ];
 
   return {
