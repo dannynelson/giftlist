@@ -6,3 +6,8 @@
   width: 96px;
   height: 96px;
 }
+
+.buy-button {
+  margin: 15px auto;
+  width: 100%;
+}
