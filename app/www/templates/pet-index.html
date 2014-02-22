@@ -8,13 +8,13 @@
 
     <div class="list">
 
-      <a ng-repeat="pet in pets"
-         href="#/tab/pet/{{pet.id}}"
+      <a ng-repeat="gift in gifts"
+         href="#/tab/gift/{{gift.id}}"
          class="item item-thumbnail-left">
 
-        <img ng-src="{{ pet.img }}">
-        <h2>{{ pet.title }}</h2>
-        <p>${{ pet.price }}</p>
+        <img ng-src="{{ gift.img }}">
+        <h2>{{ gift.title }}</h2>
+        <p>${{ gift.price }}</p>
       </a>
 
     </div>

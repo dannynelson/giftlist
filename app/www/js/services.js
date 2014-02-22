@@ -31,7 +31,7 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var pets = [
+  var gifts = [
     { id: 0,
       title: 'The Innovator\'s Dilemma',
       description: 'The Revolutionary Book That Will Change the Way You Do Business.',
@@ -60,11 +60,11 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return pets;
+      return gifts;
     },
-    get: function(petId) {
+    get: function(giftId) {
       // Simple index lookup
-      return pets[petId];
+      return gifts[giftId];
     }
   }
 });
