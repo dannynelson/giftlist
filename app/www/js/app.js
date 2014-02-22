@@ -57,5 +57,13 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/pets');
 
+})
+
+.run(function() {
+  Parse.initialize(
+    "052sIKQtx4j78gACCFaKviUUwRlRpEg6CNxgp6Od",
+    "DZhIOEKSUEhbMOYSg7eBbUpN0rIrL5r40l3mHYLl"
+  );
 });
+
 
