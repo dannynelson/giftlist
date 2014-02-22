@@ -16,18 +16,6 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-    .state('search', {
-      url: "/",
-      templateUrl: "templates/search.html",
-      controller: "SearchCtrl"
-    })
-
-    .state('wishList', {
-      url: "/wish-list",
-      templateUrl: "templates/wishList.html",
-      controller: "WishListCtrl"
-    })
-
     // setup an abstract state for the tabs directive
     .state('tab', {
       url: "/tab",
@@ -60,7 +48,8 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       url: '/search',
       views: {
         'search-tab': {
-          templateUrl: 'templates/search.html'
+          templateUrl: 'templates/search.html',
+          controller: "SearchCtrl"
         }
       }
     });

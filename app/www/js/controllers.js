@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 // Search controller, send's email to our api
-.controller('SearchCtrl', function($scope, $ionicLoading, WishListService) {
+.controller('SearchCtrl', function($scope, $ionicLoading, $state, WishListService) {
   $scope.show = function() {
     $scope.loading = $ionicLoading.show({
       content: 'Loading',
@@ -19,9 +19,10 @@ angular.module('starter.controllers', [])
   // send content of email field to api via
   $scope.sendEmail = function(email) {
     // start spinner
+    console.log("inside sendEmail", email);
     $scope.show();
 
-    WishListService.getWishList()
+    WishListService.getWishList(email)
       // resoluton of getWishList means that an api request was initiated
       // the server responded with wishList blob and wishList is
       // avail as a property of the WishListService
@@ -29,7 +30,7 @@ angular.module('starter.controllers', [])
       .then(function() {
         // switch to wishList view state
         $scope.hide();
-        $state.go('wishlist');
+        $state.go('tab.gift-ideas');
       }, function(data, status) {
         $scope.hide();
         console.log("Error occured during api request", data, status);
