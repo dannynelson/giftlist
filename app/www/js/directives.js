@@ -11,7 +11,8 @@ angular.module('starter.directives', [])
       showPager: '@',
       disableScroll: '@',
       onSlideChanged: '&',
-      activeSlide: '=?'
+      activeSlide: '=?',
+      onSwipe: '&'
     },
     controller: ['$scope', '$element', function($scope, $element) {
       var _this = this;
@@ -33,7 +34,7 @@ angular.module('starter.directives', [])
         },
         callback: function(slideIndex) {
           $scope.currentSlide = slideIndex;
-          $scope.onSlideChanged({index:$scope.currentSlide});
+          $scope.onSlideChanged({index:$scope.currentSlide, swipeDir:$scope.swipeDir});
           $scope.$parent.$broadcast('slideBox.slideChanged', slideIndex);
           $scope.activeSlide = slideIndex;
           // Try to trigger a digest
@@ -71,14 +72,12 @@ angular.module('starter.directives', [])
         slider.load();
       });
 
-      $ionicGesture.on('swipeleft', function(e){
-        console.log(e);
-        console.log('item with id #' + e.target.id + ' was disliked!');
+      $ionicGesture.on('swipeleft', function(){
+        $scope.onSwipe({swipeDir: "left"});
       }, $element);
 
-      $ionicGesture.on('swiperight', function(e){
-        console.log(e);
-        console.log('item with id #' + e.target.id + ' was liked!');
+      $ionicGesture.on('swiperight', function(){
+        $scope.onSwipe({swipeDir: "right"});
       }, $element);
 
     }],
