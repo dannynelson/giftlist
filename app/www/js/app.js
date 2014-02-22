@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       views: {
         'gift-ideas-tab': {
           templateUrl: 'templates/gift-ideas-index.html',
-          controller: 'PetIndexCtrl'
+          controller: 'GiftIndexCtrl'
         }
       }
     })
@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       views: {
         'gift-ideas-tab': {
           templateUrl: 'templates/gift-detail.html',
-          controller: 'PetDetailCtrl'
+          controller: 'GiftDetailCtrl'
         }
       }
     })
