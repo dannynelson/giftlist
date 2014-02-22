@@ -40,7 +40,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       url: '/gift-ideas',
       views: {
         'gift-ideas-tab': {
-          templateUrl: 'templates/pet-index.html',
+          templateUrl: 'templates/gift-ideas-index.html',
           controller: 'PetIndexCtrl'
         }
       }
@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       url: '/gift/:giftId',
       views: {
         'gift-ideas-tab': {
-          templateUrl: 'templates/pet-detail.html',
+          templateUrl: 'templates/gift-detail.html',
           controller: 'PetDetailCtrl'
         }
       }
