@@ -72,6 +72,16 @@ angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.
           controller: "BrowseCtrl"
         }
       }
+    })
+
+    .state('tab.account', {
+      url: '/account',
+      views: {
+        'account-tab': {
+          templateUrl: 'templates/account.html',
+          controller: "AccountCtrl"
+        }
+      }
     });
 
   // if none of the above states are matched, use this as the fallback
