@@ -34,12 +34,12 @@ angular.module('giftlist.services')
 
   return {
     addToWishList: function(currentGift) {
+      debugger;
       wishList.push(currentGift);
     },
     getWishList: function() {
       return wishList;
     }
-    // wishList: wishList
   };
 });
 

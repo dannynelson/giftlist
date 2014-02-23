@@ -6,14 +6,13 @@ angular.module('giftlist.controllers')
   // $scope.gifts = GiftService.getWishList();
   // debugger;
   // GiftService.getWishList();
-  $scope.index = 0;
   $scope.gifts = macysData.category[0].product.product;
-  $scope.gift = macysData.category[0].product.product[$scope.index];
+  $scope.gift = macysData.category[0].product.product[GiftService.productIndex];
   console.log($scope.gifts);
 
   $scope.nextItem = function () {
-    $scope.index++;
-    $scope.gift = $scope.gifts[$scope.index];
+    GiftService.productIndex++;
+    $scope.gift = $scope.gifts[GiftService.productIndex];
   };
 
   $scope.addToWishList = function() {
