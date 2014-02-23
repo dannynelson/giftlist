@@ -6,11 +6,24 @@ angular.module('giftlist.controllers')
   // $scope.gifts = GiftService.getWishList();
   // debugger;
   // GiftService.getWishList();
+  $scope.index = 0;
   $scope.gifts = macysData.category[0].product.product;
-  $scope.currentGift = macysData.category[0].product.product[0];
+  $scope.gift = macysData.category[0].product.product[$scope.index];
   console.log($scope.gifts);
 
-  $scope.addToWishList = WishListService.addToWishList;
+  $scope.nextItem = function () {
+    $scope.index++;
+    $scope.gift = $scope.gifts[$scope.index];
+  };
+
+  $scope.addToWishList = function() {
+    $scope.nextItem();
+    WishListService.addToWishList();
+  };
+
+  $scope.skipItem = function() {
+    $scope.nextItem();
+  };
 
   $scope.removeGift = function(swipeDir) {
     console.log("remove gift", swipeDir);
