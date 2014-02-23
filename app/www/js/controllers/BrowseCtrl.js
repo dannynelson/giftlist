@@ -25,6 +25,16 @@ angular.module('giftlist.controllers')
   };
 
   $scope.removeGift = function(swipeDir) {
-    console.log("remove gift", swipeDir);
+    // pop gift from the potential gift list
+    // depending on the direction of the swipe
+    // the gift is either tossed away (swipe left) or
+    // stored in wishlist (swipe right)
+
+    // var gift = $scope.gifts.shift();
+    // console.log(gift);
+    if (swipeDir === "right") {
+      $scope.wishList.push(gift);
+    }
+    console.log($scope.gifts);
   };
 });

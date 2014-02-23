@@ -9,7 +9,7 @@ angular.module('giftlist.controllers', []);
 angular.module('giftlist.services', []);
 angular.module('giftlist.directives', []);
 
-angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.controllers', 'giftlist.directives'])
+angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.controllers', 'giftlist.directives', 'ngAnimate'])
 
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -90,7 +90,8 @@ angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/browse');
+  $urlRouterProvider.otherwise('/login');
+
 
 })
 
