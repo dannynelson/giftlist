@@ -1,24 +1,60 @@
 angular.module('giftlist.services')
 
 .factory('FirebaseService', function ($location, $state) {
-  var giftlist = new Firebase('https://thegiftlist.firebaseio.com/users');
+  
+  // ------------------------------------------------
+  // Establishing user schema and methods
+  // -------------------------------------------
+  var user = {};
 
-  var auth = new FirebaseSimpleLogin(giftlist, function(error, user) {
+  var createInfo = function(infoJSON) {
+    user.facebook = infoJSON;
+  };
+
+  var getUserInfo = function() {
+    return user.facebook;
+  };
+
+  var addToWishlist = function(itemJSON) {
+    user.wishlist.push(itemJSON);
+  };
+
+  var getWishlist = function() {
+    return user.wishlist;
+  };
+
+  // ------------------------------------------------
+  // Initialize Firebase and auth
+  // ------------------------------------------------
+  var giftlist = new Firebase('https://thegiftlist.firebaseio.com/users/');
+
+  var auth = new FirebaseSimpleLogin(giftlist, function(error, fbUser) {
     if (error) {
       // an error occurred while attempting login
       console.log(error);
-    } else if (user) {
+    } else if (fbUser) {
       // user authenticated with Firebase
-      console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
-      
-      // store or update user's info in firebase
-      var usr = {};
-      usr[user.id] = {};
-      usr[user.id].facebook = user;
-      giftlist.update(usr);
-      
+      console.log('User ID: ' + fbUser.id + ', Provider: ' + fbUser.provider);
+
+      var userRef = giftlist.child(fbUser.id);
+
+      userRef.on('value', function(dataSnapshot) {
+        if (dataSnapshot.val()){
+          console.log('USER EXISTS IN FIREBASE');
+          console.log(dataSnapshot.val());
+        } else {
+          console.log('USER IS NOT IN FIREBASE');
+          // store or update user's info in firebase
+          user[fbUser.id] = {};
+          user[fbUser.id].facebook = fbUser;
+          user[fbUser.id].wishlist = ['testing', 123];
+          giftlist.update(user);
+        }
+      });
+
+
       // go to search page once logged in
-      $state.go('tab.search');
+      // $state.go('tab.search');
     } else {
       // user is logged out
       console.log('user is logged out');
@@ -39,6 +75,9 @@ angular.module('giftlist.services')
     auth: auth,
     giftlist: giftlist,
     facebookLogin: facebookLogin,
-    logout: logout
+    logout: logout,
+    getUserInfo: getUserInfo,
+    addToWishlist: addToWishlist,
+    getWishlist: getWishlist
   };
 });
