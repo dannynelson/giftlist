@@ -11,7 +11,7 @@
               {{ gift.summary.name }}
             </p>
             <p class="price">
-              ${{ gift.price.regular.value }}
+              ${{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value }}
             </p>
             <div>
               <button class="button icon ion-thumbsdown"></button>
