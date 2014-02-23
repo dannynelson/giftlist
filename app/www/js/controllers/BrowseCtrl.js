@@ -8,7 +8,6 @@ angular.module('giftlist.controllers')
   // GiftService.getWishList();
   $scope.gifts = macysData.category[0].product.product;
   console.log($scope.gifts);
-  // debugger;
 
   $scope.removeGift = function(swipeDir) {
     console.log("remove gift", swipeDir);
