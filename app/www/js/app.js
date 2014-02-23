@@ -71,6 +71,11 @@ angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.
           templateUrl: 'templates/browse.html',
           controller: "BrowseCtrl"
         }
+      },
+      resolve: {
+        macysData: function (MacysService) {
+          return MacysService.getMacysData()
+        }
       }
     });
 
