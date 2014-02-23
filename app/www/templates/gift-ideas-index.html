@@ -9,7 +9,7 @@
 
         <img ng-src="{{ gift.image[0].imageurl }}">
         <h2>{{ gift.summary.name }}</h2>
-        <p>${{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value }}</p>
+        <p>{{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value | currency }}</p>
       </a>
 
     </div>

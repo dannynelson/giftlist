@@ -19,11 +19,11 @@
           Source: Macy's
         </span>
         <span class="float-right">
-          ${{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value }}
+          {{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value | currency }}
         </span>
         </p>
 
-        <a class="button icon-right ion-chevron-right button-balanced float-right buy-button">Buy</a>
+        <a class="button icon-right ion-chevron-right button-balanced float-right buy-button" ng-href="{{ gift.summary.producturl }}">Buy</a>
       </div>
 
     </div>
