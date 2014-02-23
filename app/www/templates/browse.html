@@ -2,25 +2,24 @@
   <ion-content has-header="true" has-tabs="true">
 <!--     <giftlist-slide-box show-pager="false" on-swipe="removeGift(swipeDir)">
       <giftlist-slide ng-repeat="gift in gifts"> -->
-      <div>
         <div class="list card">
 
           <div class="item item-body">
-
             <img class="product-image" ng-src="{{ gift.image[0].imageurl }}">
             <p class="subdued">
               {{ gift.summary.name }}
             </p>
-            <p class="price">
+            <p class="price top-right">
               {{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value | currency }}
             </p>
-            <div>
+          </div>
+          <div class="item myitem">
+            <div class="button-bar">
               <button class="button icon ion-thumbsdown" ng-click="skipItem()"></button>
               <button class="button icon ion-thumbsup" ng-click="addToWishList(gift)"></button>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
  <!--      </giftlist-slide>
     </giftlist-slide-box> -->
   </ion-content>

@@ -1,7 +1,8 @@
 /* Your app's CSS, go crazy, make it your own */
 
 .price {
-  text-align: right;
+  font-weight: bold;
+  color: 'blue';
 }
 
 .float-right {
@@ -38,7 +39,7 @@ h1.logo {
 .top-right {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
 }
 
 .top-left {
@@ -56,4 +57,7 @@ h1.logo {
 
 .product-image {
   max-height: 60%;
+}
+.myitem {
+  padding: 0;
 }
