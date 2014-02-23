@@ -42,7 +42,6 @@ angular.module('giftlist.services')
     getWishListItem: function(id) {
       return wishList[id];
     }
-    // wishList: wishList
   };
 });
 
