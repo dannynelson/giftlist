@@ -12,7 +12,7 @@
               {{ gift.summary.name }}
             </p>
             <p class="price">
-              ${{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value }}
+              {{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value | currency }}
             </p>
             <div>
               <button class="button icon ion-thumbsdown" ng-click="skipItem()"></button>
