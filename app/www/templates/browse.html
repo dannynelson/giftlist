@@ -1,34 +1,13 @@
-<ion-view title="'Browse'">
+<ion-view title="'Browse'" class='stable-bg'>
   <ion-content has-header="true" has-tabs="true">
-
-<<<<<<< HEAD
-    <!-- <ion-list>
-      <ion-item ng-repeat="gift in gifts" item="item"
-        can-delete="true"
-        show-delete="true">
-         <img class="full-image" id="{{ gift.id }}" ng-src="{{ gift.img }}">
-          <p class="subdued">
-            {{ gift.title }} -- ${{ gift.price }}
-          </p>
-      </ion-item>
-    </ion-list>
- -->
-
-    <giftlist-slide-box show-pager="false" on-swipe="removeGift(swipeDir)">
-      <giftlist-slide ng-repeat="gift in gifts track by gift.id">
-        <div class="list card">
-
-          <div class="item item-body"> 
-            <img class="full-image" id="{{ gift.id }}" ng-src="{{ gift.img }}">
-=======
 <!--     <giftlist-slide-box show-pager="false" on-swipe="removeGift(swipeDir)">
       <giftlist-slide ng-repeat="gift in gifts"> -->
       <div>
         <div class="list card">
 
           <div class="item item-body">
-            <img class="full-image" ng-src="{{ gift.image[0].imageurl }}">
->>>>>>> 6d491cc5cfa131db68ef6b4e59cc865d7944e302
+
+            <img class="product-image" ng-src="{{ gift.image[0].imageurl }}">
             <p class="subdued">
               {{ gift.summary.name }}
             </p>
@@ -40,12 +19,9 @@
               <button class="button icon ion-thumbsup" ng-click="addToWishList(gift)"></button>
             </div>
           </div>
-
-
         </div>
       </div>
  <!--      </giftlist-slide>
     </giftlist-slide-box> -->
-
   </ion-content>
 </ion-view>
