@@ -5821,7 +5821,9 @@ a.button {
     content: "."; }
 
 .full-image {
-  width: 100%; }
+  width: 100%; 
+  max-height: 80%;
+}
 
 .clearfix {
   *zoom: 1; }

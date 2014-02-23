@@ -71,6 +71,11 @@ angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.
           templateUrl: 'templates/browse.html',
           controller: "BrowseCtrl"
         }
+      },
+      resolve: {
+        macysData: function (GiftService) {
+          return GiftService.getWishList();
+        }
       }
     })
 
@@ -85,7 +90,11 @@ angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/gift-ideas');
+  $urlRouterProvider.otherwise('/tab/browse');
 
+})
+
+.run(function () {
+  window.index = 0;
 });
 

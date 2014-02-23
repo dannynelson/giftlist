@@ -6,6 +6,9 @@ angular.module('giftlist.services')
   // Establishing user schema and methods
   // -------------------------------------------
   var user = {};
+  var userRef;
+  var wishListRef;
+
 
   var createInfo = function(infoJSON) {
     user.facebook = infoJSON;
@@ -36,12 +39,13 @@ angular.module('giftlist.services')
       // user authenticated with Firebase
       console.log('User ID: ' + fbUser.id + ', Provider: ' + fbUser.provider);
 
-      var userRef = giftlist.child(fbUser.id);
+      userRef = giftlist.child(fbUser.id);
 
       userRef.once('value', function(dataSnapshot) {
         if (dataSnapshot.val()){
           console.log('USER EXISTS IN FIREBASE');
           console.log(dataSnapshot.val());
+          wishListRef = userRef.child('wishlist');
         } else {
           console.log('USER IS NOT IN FIREBASE');
           // store or update user's info in firebase
@@ -49,7 +53,11 @@ angular.module('giftlist.services')
           user[fbUser.id].facebook = fbUser;
 
           // change this wishlist eventually
-          user[fbUser.id].wishlist = ['testing', 123];
+          user[fbUser.id].wishlist = [];
+
+          debugger;
+          wishListRef = userRef.child('wishlist');
+
 
           // grab friend list from FB
           $http({method: 'GET', url: 'https://graph.facebook.com/me/friends?access_token=' + fbUser.accessToken})
@@ -70,7 +78,7 @@ angular.module('giftlist.services')
       });
 
       // go to search page once logged in
-      $state.go('tab.gift-ideas');
+      $state.go('tab.browse');
     } else {
       // user is logged out
       console.log('user is logged out');
@@ -93,6 +101,8 @@ angular.module('giftlist.services')
   return {
     auth: auth,
     giftlist: giftlist,
+    // getUserRef: function() return userRef,
+    // wishListRef: wishListRef,
     facebookLogin: facebookLogin,
     logout: logout,
     getUserInfo: getUserInfo,
