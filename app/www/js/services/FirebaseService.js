@@ -78,7 +78,7 @@ angular.module('giftlist.services')
       });
 
       // go to search page once logged in
-      $state.go('tab.gift-ideas');
+      $state.go('tab.browse');
     } else {
       // user is logged out
       console.log('user is logged out');

@@ -4,21 +4,21 @@
     <div class="list card">
 
       <div class="item item-avatar">
-        <img ng-src="{{ gift.img }}">
-        <h2>{{ gift.title }}</h2>
-        <p>{{ gift.description }}</p>
+        <img ng-src="{{ gift.image[0].imageurl }}">
+        <h2>{{ gift.summary.name }}</h2>
+        <p>{{ gift.summary.name }}</p>
       </div>
 
       <div class="item item-body">
-        <img class="full-image" ng-src="{{ gift.img }}">
+        <img class="full-image" ng-src="{{ gift.image[0].imageurl }}">
         <p>
-          {{ gift.description }}
+          {{ gift.summary.name }}
         </p>
         <p class="subdued">
-          Source: Amazon
+          Source: Macy's
         </p>
         <p class="price">
-          ${{ gift.price }}
+          ${{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value }}
         </p>
 
       </div>

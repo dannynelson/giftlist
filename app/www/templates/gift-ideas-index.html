@@ -3,13 +3,13 @@
 
     <div class="list">
 
-      <a ng-repeat="gift in gifts"
+      <a ng-repeat="gift in wishList"
          href="#/tab/gift/{{gift.id}}"
          class="item item-thumbnail-left">
 
-        <img ng-src="{{ gift.img }}">
-        <h2>{{ gift.title }}</h2>
-        <p>${{ gift.price }}</p>
+        <img ng-src="{{ gift.image[0].imageurl }}">
+        <h2>{{ gift.summary.name }}</h2>
+        <p>${{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value }}</p>
       </a>
 
     </div>

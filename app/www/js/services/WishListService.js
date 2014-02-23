@@ -23,10 +23,10 @@ angular.module('giftlist.services')
   //     return deferred.promise;
   //   }
   // };
-  // 
+  //
   // debugger;
   // var wishListRef = FirebaseService.userRef.child('wishlist');
-  var wishList = [];
+  var wishList = {};
 
   // var wishListRef = FirebaseService.wishListRef;
   // var wishlistRef = $firebase(FirebaseService.wishlistRef);
@@ -34,11 +34,13 @@ angular.module('giftlist.services')
 
   return {
     addToWishList: function(currentGift) {
-      debugger;
-      wishList.push(currentGift);
+      wishList[currentGift.id] = currentGift;
     },
     getWishList: function() {
       return wishList;
+    },
+    getWishListItem: function(id) {
+      return wishList[id];
     }
   };
 });

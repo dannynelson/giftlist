@@ -15,9 +15,9 @@ angular.module('giftlist.controllers')
     $scope.gift = $scope.gifts[GiftService.productIndex];
   };
 
-  $scope.addToWishList = function() {
+  $scope.addToWishList = function(gift) {
     $scope.nextItem();
-    WishListService.addToWishList();
+    WishListService.addToWishList(gift);
   };
 
   $scope.skipItem = function() {

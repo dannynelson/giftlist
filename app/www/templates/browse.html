@@ -12,11 +12,11 @@
               {{ gift.summary.name }}
             </p>
             <p class="price">
-              ${{ gift.price.regular.value }}
+              ${{ gift.price.sale.value || gift.price.regular.value || gift.price.everydayvalue.value }}
             </p>
             <div>
-              <button class="button icon ion-thumbsdown" ng-click="skipItem()"></button>
-              <button class="button icon ion-thumbsup" ng-click="addToWishList(gift)"></button>
+              <button class="button button-clear button-assertive icon ion-thumbsdown" ng-click="skipItem()"></button>
+              <button class="button button-clear button-positive icon ion-thumbsup" ng-click="addToWishList(gift)"></button>
             </div>
           </div>
 
