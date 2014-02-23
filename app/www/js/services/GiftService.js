@@ -34,7 +34,7 @@ angular.module('giftlist.services')
   //   }
   // ];
 
-  var url = 'http://giftlist-api.herokuapp.com/macys/v3~catalog~category~118~browseproducts?resultsperpage=10';
+  var url = 'http://giftlist-api.herokuapp.com/macys/v3~catalog~category~118~browseproducts?resultsperpage=50&imagewidth=355';
 
 
   return {
@@ -51,10 +51,7 @@ angular.module('giftlist.services')
 
       $http.get(url)
         .success(function(data) {
-          debugger;
-          // debugger;
           // this.wishlist = data.category[0].product.product;
-          // console.log(this.wishlist);
           deferred.resolve(data);
         })
         .error(function(data, status) {
