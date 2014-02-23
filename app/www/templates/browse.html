@@ -1,11 +1,23 @@
 <ion-view title="'Browse'">
   <ion-content has-header="true" has-tabs="true">
 
+    <!-- <ion-list>
+      <ion-item ng-repeat="gift in gifts" item="item"
+        can-delete="true"
+        show-delete="true">
+         <img class="full-image" id="{{ gift.id }}" ng-src="{{ gift.img }}">
+          <p class="subdued">
+            {{ gift.title }} -- ${{ gift.price }}
+          </p>
+      </ion-item>
+    </ion-list>
+ -->
+
     <giftlist-slide-box show-pager="false" on-swipe="removeGift(swipeDir)">
-      <giftlist-slide ng-repeat="gift in gifts" id="{{ gift.id }}">
+      <giftlist-slide ng-repeat="gift in gifts track by gift.id">
         <div class="list card">
 
-          <div class="item item-body">
+          <div class="item item-body"> 
             <img class="full-image" id="{{ gift.id }}" ng-src="{{ gift.img }}">
             <p class="subdued">
               {{ gift.title }} -- ${{ gift.price }}
