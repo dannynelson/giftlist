@@ -1,7 +1,7 @@
 <ion-view title="'Browse'">
   <ion-content has-header="true" has-tabs="true">
 
-    <giftlist-slide-box>
+    <giftlist-slide-box show-pager="false" on-swipe="removeGift(swipeDir)">
       <giftlist-slide ng-repeat="gift in gifts" id="{{ gift.id }}">
         <div class="list card">
 
