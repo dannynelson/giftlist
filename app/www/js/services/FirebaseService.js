@@ -1,7 +1,7 @@
 angular.module('giftlist.services')
 
 .factory('FirebaseService', function ($location, $state, $http) {
-  
+
   // ------------------------------------------------
   // Establishing user schema and methods
   // -------------------------------------------
@@ -70,7 +70,7 @@ angular.module('giftlist.services')
       });
 
       // go to search page once logged in
-      $state.go('tab.browse');
+      $state.go('tab.gift-ideas');
     } else {
       // user is logged out
       console.log('user is logged out');
