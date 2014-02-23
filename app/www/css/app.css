@@ -3,3 +3,26 @@
 .price {
   text-align: right;
 }
+
+/* splash page styling */
+.splash {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -99;
+}
+
+h1.logo {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  padding-top: 40%;
+}
+
+.login-button {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: absolute;
+  bottom: 15px;
+}
