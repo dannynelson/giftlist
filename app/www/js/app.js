@@ -72,11 +72,11 @@ angular.module('giftlist', ['ionic', 'firebase', 'giftlist.services', 'giftlist.
           controller: "BrowseCtrl"
         }
       },
-      resolve: {
-        macysData: function (MacysService) {
-          return MacysService.getMacysData()
-        }
-      }
+      // resolve: {
+      //   macysData: function (MacysService) {
+      //     return MacysService.getMacysData()
+      //   }
+      // }
     });
 
   // if none of the above states are matched, use this as the fallback

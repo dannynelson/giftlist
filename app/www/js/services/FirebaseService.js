@@ -11,7 +11,7 @@ angular.module('giftlist.services')
       // user authenticated with Firebase
       console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
       // go to search page once logged in
-      $state.go('tab.search');
+      $state.go('tab.browse');
     } else {
       // user is logged out
       console.log('user is logged out');

@@ -8,9 +8,13 @@ angular.module('giftlist.services')
   //   male: 1,
   //   female: 118
   // }
-  debugger;
-  $http.defaults.headers.common['X-Macys-Webservice-Client-Id'] = apiKey;
-  $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+  // debugger;
+  // $http.defaults.headers.common['X-Macys-Webservice-Client-Id'] = apiKey;
+  // $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
+  // window.jsonpCallback = function(data) {
+  //   console.log(data);
+  // };
 
   return {
     getMacysData: function() {
