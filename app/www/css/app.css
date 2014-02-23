@@ -39,8 +39,13 @@ h1.logo {
   left: 10px;
 }
 
-.ng-enter
+/*.ng-enter
   animation: fadeIn 0.5s;
 
 .ng-leave
   animation: fadeOut 0.5s;
+*/
+
+.product-image {
+  max-height: 60%;
+}
