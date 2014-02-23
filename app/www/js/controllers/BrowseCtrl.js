@@ -1,9 +1,13 @@
 angular.module('giftlist.controllers')
 
-.controller('BrowseCtrl', function($scope, GiftService, WishListService) {
+.controller('BrowseCtrl', function($scope, GiftService, WishListService, macysData) {
   // "Gifts" is a service returning mock data (services.js)
   // $scope.gifts = GiftService.all();
-  $scope.gifts = GiftService.getWishList();
+  // $scope.gifts = GiftService.getWishList();
+  // debugger;
+  // GiftService.getWishList();
+  $scope.gifts = macysData.category[0].product.product;
+  // debugger;
 
   $scope.removeGift = function(swipeDir) {
     console.log("remove gift", swipeDir);

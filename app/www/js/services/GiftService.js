@@ -51,9 +51,11 @@ angular.module('giftlist.services')
 
       $http.get(url)
         .success(function(data) {
-          this.wishlist = data.category[0].product.product;
-          console.log(this.wishlist);
-          deferred.resolve();
+          debugger;
+          // debugger;
+          // this.wishlist = data.category[0].product.product;
+          // console.log(this.wishlist);
+          deferred.resolve(data);
         })
         .error(function(data, status) {
           deferred.reject(data, status);
